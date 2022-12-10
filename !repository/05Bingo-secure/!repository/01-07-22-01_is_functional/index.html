@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bingo</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+  <section id="ballsSection">
+    <div id="allBalls">
+      <div class="ball">01</div>
+      <div class="ball">02</div>
+      <div class="ball">03</div>
+      <div class="ball">04</div>
+      <div class="ball">05</div>
+      <div class="ball">06</div>
+      <div class="ball">07</div>
+      <div class="ball">08</div>
+      <div class="ball">09</div>
+      <div class="ball">10</div>
+      <div class="ball">11</div>
+      <div class="ball">12</div>
+      <div class="ball">13</div>
+      <div class="ball">14</div>
+      <div class="ball">15</div>
+      <div class="ball">16</div>
+      <div class="ball">17</div>
+      <div class="ball">18</div>
+      <div class="ball">19</div>
+      <div class="ball">20</div>
+      <div class="ball">21</div>
+      <div class="ball">22</div>
+      <div class="ball">23</div>
+      <div class="ball">24</div>
+      <div class="ball">25</div>
+      <div class="ball">26</div>
+      <div class="ball">27</div>
+      <div class="ball">28</div>
+      <div class="ball">29</div>
+      <div class="ball">30</div>
+      <div class="ball">31</div>
+      <div class="ball">32</div>
+      <div class="ball">33</div>
+      <div class="ball">34</div>
+      <div class="ball">35</div>
+      <div class="ball">36</div>
+      <div class="ball">37</div>
+      <div class="ball">38</div>
+      <div class="ball">39</div>
+      <div class="ball">40</div>
+      <div class="ball">41</div>
+      <div class="ball">42</div>
+      <div class="ball">43</div>
+      <div class="ball">44</div>
+      <div class="ball">45</div>
+      <div class="ball">46</div>
+      <div class="ball">47</div>
+      <div class="ball">48</div>
+      <div class="ball">49</div>
+      <div class="ball">50</div>
+      <div class="ball">51</div>
+      <div class="ball">52</div>
+      <div class="ball">53</div>
+      <div class="ball">54</div>
+      <div class="ball">55</div>
+      <div class="ball">56</div>
+      <div class="ball">57</div>
+      <div class="ball">58</div>
+      <div class="ball">59</div>
+      <div class="ball">60</div>
+      <div class="ball">61</div>
+      <div class="ball">62</div>
+      <div class="ball">63</div>
+      <div class="ball">64</div>
+      <div class="ball">65</div>
+      <div class="ball">66</div>
+      <div class="ball">67</div>
+      <div class="ball">68</div>
+      <div class="ball">69</div>
+      <div class="ball">70</div>
+      <div class="ball">71</div>
+      <div class="ball">72</div>
+      <div class="ball">73</div>
+      <div class="ball">74</div>
+      <div class="ball">75</div>
+    </div>
+
+    <div id="optionsBalls">
+      <span>
+        <div class="tagLetter"></div>
+        <div class="tagOrder"></div>
+        <input id="inputBall" type="number" min="1" max="75">
+      </span>
+      <button id="pushBallBtn" disabled>push</button>
+    </div>
+  </section><!--ballsSection-->
+
+  <section id="allBallsHistoric">
+    <div id="undoBall" class="blocked">
+      <span class="material-icons">undo</span>
+    </div>
+
+    <div id="ballHistoricModel" class="ballHistoric">
+      <!-- <span class="containerClose" onclick="popBall(this.parentElement)">
+        <span class="material-icons">close</span>
+      </span> -->
+      <span class="tagLetter">B</span>
+      <span class="value">01</span>
+      <span class="tagOrder">1º</span>
+    </div>
+  </section>
+
+  <div id="cardsOptions">
+    <button id="addCardBtn" >Add Cards</button>
+  </div>
+
+  <section id="allCards">
+    <div id="cardModel" class="card">
+      <header>
+        <span class="cardData">
+          <p>Name: </p>
+          <p class="cardName">######</p>
+        </span>
+  
+        <span class="cardOptions">
+          <button>
+            <span class="material-icons">settings</span>
+          </button>
+          <span class="hidden">
+            <button class="openEdit">edit</button>
+            <button class="openRemove">delete</button>
+          </span>
+        </span>
+      </header>
+  
+      <div class="allColumns">
+        <div class="columnB">
+          <div class="letter" translate="no">B</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnI">
+          <div class="letter" translate="no">I</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnN">
+          <div class="letter" translate="no">N</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item free"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnG">
+          <div class="letter" translate="no">G</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnO">
+          <div class="letter"translate="no">O</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+      </div>
+
+      <div class="cardRemove closed">
+        <button class="confirmRemove">Confirm</button> <!-- adicionar atributo cardId para todos os botoes-->
+        <button class="cancelRemove">Cancel</button>
+      </div>
+      
+    </div><!--cardModel-->    
+  </section><!--allCarrdsSection-->
+
+  <section id="cardInputSection">
+    <form id="cardInput" class="card">
+      <header>
+        <span>
+          <label for="cardInputName">Name: </label>
+          <input id="cardInputName" type="text" maxlength="30" required>
+        </span>
+
+        <span>
+          <p id="cardInputId"></p>
+        </span>
+
+        <span>
+          <button id="cardInputCancel" type="reset">Cancel</button>
+          <button id="cardInputSave" type="submit">Save</button>
+        </span>
+      </header>
+
+      <div class="allColumns">
+        <div class="columnB">
+          <div class="letter">B</div>
+          <input type="number" min="1" max="15" class="item1" required></input>
+          <input type="number" min="1" max="15" class="item2" required></input>
+          <input type="number" min="1" max="15" class="item3" required></input>
+          <input type="number" min="1" max="15" class="item4" required></input>
+          <input type="number" min="1" max="15" class="item5" required></input>
+        </div>
+
+        <div class="columnI">
+          <div class="letter">I</div>
+          <input type="number" min="16" max="30" class="item1" required></input>
+          <input type="number" min="16" max="30" class="item2" required></input>
+          <input type="number" min="16" max="30" class="item3" required></input>
+          <input type="number" min="16" max="30" class="item4" required></input>
+          <input type="number" min="16" max="30" class="item5" required></input>
+        </div>
+
+        <div class="columnN">
+          <div class="letter">N</div>
+          <input type="number" min="31" max="45" class="item1" required></input>
+          <input type="number" min="31" max="45" class="item2" required></input>
+          <div class="item3"></div>
+          <input type="number" min="31" max="45" class="item4" required></input>
+          <input type="number" min="31" max="45" class="item5" required></input>
+        </div>
+
+        <div class="columnG">
+          <div class="letter">G</div>
+          <input type="number" min="46" max="60" class="item1" required></input>
+          <input type="number" min="46" max="60" class="item2" required></input>
+          <input type="number" min="46" max="60" class="item3" required></input>
+          <input type="number" min="46" max="60" class="item4" required></input>
+          <input type="number" min="46" max="60" class="item5" required></input>
+        </div>
+
+        <div class="columnO">
+          <div class="letter">O</div>
+          <input type="number" min="61" max="75" class="item1" required></input>
+          <input type="number" min="61" max="75" class="item2" required></input>
+          <input type="number" min="61" max="75" class="item3" required></input>
+          <input type="number" min="61" max="75" class="item4" required></input>
+          <input type="number" min="61" max="75" class="item5" required></input>
+        </div>
+      </div>
+    </form><!--inputCarrd-->
+  </section><!--cardInputSection-->
+
+  <script src="script.js"></script>
+
+</body>
+</html>

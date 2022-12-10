@@ -1,0 +1,96 @@
+body {
+
+  --white-darkMode: rgba(245, 245, 245, 0.95);
+
+  /**/
+  
+  --body-bk: rgba(0, 0, 0, 0.85);
+
+  /* --ballsSection-bk-all-bals: rgba(255, 255, 255, 0.005); */
+  --scroll-bk-all-cards: rgba(255, 255, 255, 0.1);
+  --scroll-bk-all-cards-hover: rgba(255, 255, 255, 0.5);
+
+  --ballsSection-bk-ball: var(--white-darkMode);
+
+  --ballsHistoric-bk: rgba(0, 0, 0, 0.4);
+  --ballsHistoric-undo-fontColor: var(--white-darkMode);
+  --ballsHistoric-ball-bk: var(--white-darkMode);
+
+  --moreSettings-bk: rgba(255, 255, 255, 0.1);
+  --moreSettings-font-color: var(--white-darkMode);
+
+  --allCards-borderColor: rgb(31, 31, 31);
+  --allCards-bk: rgb(56, 56, 56);
+  --card-bk: #333;
+  --card-boxShadow: 10px 10px 30px rgb(31, 31, 31),
+                    -10px -10px 30px rgb(41, 41, 41);
+
+  --card-header-bk: rgba(0,0,0,0.4);
+
+  --header-name-fontColor: rgb(255, 255, 255, 0.8);
+  --header-userName-fontColor: rgba(255, 255, 255, 0.5);
+  --header-id-fontColor: rgba(255, 255, 255, 0.3);
+
+  --header-settings-icon-fontColor: rgba(255,255,255,0.65);
+  --header-settings-icon-fontColor-hover: var(--white-darkMode);
+  --header-hidden-button-bk: rgba(0,0,0,0.6);
+  --header-hidden-button-bk-hover: rgba(255,255,255,0.65);
+  --header-hidden-button-fontColor: var(--white-darkMode);
+  --header-hidden-button-fontColor-hover: rgba(0,0,0,0.9);
+
+  --card-letter-fontColor: rgba(255,255,255,0.6);
+  --card-item-fontColor: rgba(255, 255, 255, 0.5);
+  --card-item-bk: rgba(0,0,0,0.1);
+
+  --cardInput-bk: var(--card-bk);
+  --cardInput-id-fontColor: var(--white-darkMode);
+  --cardInput-ivalidItem-bk: rgba(255, 0, 0, 0.2);
+  --cardInput-equalItem-bk: rgba(255, 255, 129, 0.3);
+  --cardInput-inputText-bk: rgba(255, 255, 255, 0.2);
+  --cardInput-inputFocus-bk: var(--white-darkMode);
+  --cardInput-randomBtn-bk: rgba(0, 0, 0, 0.3);
+
+}
+
+#allBallsHistoric {
+  border: 3px solid rgba(0, 0, 0, 1);
+}
+
+.card div.item:not(:where([sorted]),.free){
+  background-color: var(--card-item-bk);
+}
+
+.card div.item[sorted] {
+  color: var(--primary-fontColor);
+}
+
+#cardInputSection #cardInput header input {
+  color: var(--white-darkMode);
+}
+
+#cardInput input[type="text"]:invalid {
+  border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+#cardInputSection #cardInput header button:not(#cardInputSave) {
+  color: var(--white-darkMode);
+}
+
+
+
+
+
+
+
+/* 
+.card [sorted]:after {
+  background-image: linear-gradient(to right top, var(--card-sortedItem-bk-2), transparent, var(--card-sortedItem-bk-2));
+  opacity: 0.6;
+}
+.card [sorted="1"]::after {
+  background-image: linear-gradient(to right top, var(--card-sortedItem-bk-0), transparent, var(--card-sortedItem-bk-0));
+}
+.card [sorted="2"]::after {
+  background-image: linear-gradient(to right top, var(--card-sortedItem-bk-1), transparent, var(--card-sortedItem-bk-1));
+
+} */

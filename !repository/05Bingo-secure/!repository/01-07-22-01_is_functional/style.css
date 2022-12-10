@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
+
+:root {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  /* padding: 20px; */
+  font-size: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* BALLS ------------------------------------------------------------------*/
+
+section#ballsSection {
+  background-color: rgb(50, 54, 57);
+  width: 100%;
+  height: 30rem; 
+  display: flex;
+}
+
+#ballsSection #allBalls {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  overflow: auto;
+  height: 100%;
+  width: 85%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-content: center;
+  gap: 1.5rem;
+}
+
+/*all balls*/
+.ball {
+  background-color: white;
+  padding: 1rem;
+
+  border-radius: 50%;
+  font-size: 2rem;
+  opacity: 0.2;
+  transition: opacity 0.5s;
+  user-select: none;
+}
+
+.ball.sorted {
+  opacity: 1;
+}
+
+
+/* balls historic*/
+section#allBallsHistoric {
+  background-color: black;
+
+  height: 8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: center;
+  gap: 1rem;
+}
+
+#allBallsHistoric #undoBall {
+  background-color: yellowgreen;
+  color: white;
+  width: 4rem;
+  height: 150%;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+#allBallsHistoric #undoBall.blocked {
+  opacity: 0.5;
+}
+
+#allBallsHistoric div.ballHistoric {
+  flex-shrink: 0;
+  background-color: white;
+  padding: 1.5rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+  overflow: hidden;
+}
+
+#allBallsHistoric div.ballHistoric.removed {
+  opacity: 0;
+}
+
+#ballHistoricModel {
+  display: none !important;
+}
+
+#allBallsHistoric div.ballHistoric:hover span.containerClose {
+  cursor: pointer;
+  visibility: visible;
+  opacity: 0.5;
+}
+#allBallsHistoric div.ballHistoric span.containerClose {
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  visibility: hidden;
+  inset: 0;
+  z-index: 1;
+}
+#allBallsHistoric div.ballHistoric span.material-icons {
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+#allBallsHistoric div.ballHistoric span[class^="tag"] {
+  font-size: small;
+  opacity: 0.5;
+}
+
+#allBallsHistoric div.ballHistoric span.value {
+  font-weight: bold;
+}
+
+
+
+
+/*balls options*/
+
+#ballsSection #optionsBalls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 15%;
+  min-width: 15rem !important;
+  margin: 1rem;
+  min-width: fit-content;
+}
+
+#ballsSection #optionsBalls > span{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#ballsSection #optionsBalls [class^="tag"]{
+  background-color: red;
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  
+
+  font-weight: bold;
+}
+#ballsSection #optionsBalls .tagLetter {
+  bottom: 90%;
+  left: 0px;
+}
+#ballsSection #optionsBalls .tagOrder {
+  top: 90%;
+  right: 0px;
+}
+
+#ballsSection #optionsBalls input {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  padding: 1.5rem 2rem 3rem 1rem;
+  
+  text-align: center;
+  font-size: 5rem;
+  border: none;
+  box-shadow: inset -1rem -1rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+#ballsSection #optionsBalls button {
+  padding: 1rem;
+  font-size: 3rem;
+}
+/* CARDS ------------------------------------------------------------------*/
+
+section#allCards {
+  background-color: bisque;
+  width: 100%;
+  height: 60%;
+  padding: 10px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center; */
+}
+
+#allCards #cardModel {
+  display: none;
+}
+
+#cardsOptions {
+  border: 1px solid black;
+  /* width: 100%; */
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  position: sticky;
+  top: 0px;
+  right: 0px;
+}
+
+#cardsOptions button {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.card {
+  border: 3px solid red;
+  width: 100%;
+  height: 100%;
+  max-width: 60rem;
+  max-height: 70rem;
+  position: relative;
+
+  margin: 2rem auto;
+  text-transform: uppercase;
+}
+.card > header {
+  width: 100%;
+  height: 7%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 3px solid blue;
+}
+
+.card > header .cardData {
+  display: flex;
+  gap: 1rem;
+}
+.card > header .cardData p:first-child {
+  user-select: none;
+  font-weight: bold;
+}
+
+/*card options -------------------------*/
+.card > header .cardOptions {
+  background-color: red;
+  position: relative;
+}
+.card > header .cardOptions:hover .hidden {
+  visibility: visible;
+}
+.card > header .cardOptions .hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 10rem;
+  display: grid;
+  background-color: purple;
+}
+
+
+/*card columns*/
+.card .allColumns {
+  display: flex;
+  height: 93%;
+  justify-content: space-evenly;
+}
+
+.card [class^="column"] {
+  /* border: 3px solid green; */
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card .letter {
+  font-size: 5rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+.card [class^="item"] {
+  border: 3px solid pink;
+  background-color: transparent;
+  width: 95%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+
+  font-size: 4rem;
+  
+}
+
+.card [class^="item"]:invalid {
+  border: 3px solid red;
+}
+
+.card [sorted] {
+  background-color: greenyellow;
+  transition: background 1s;
+}
+.card [sorted="1"] {
+  background-color: red;
+}
+.card [sorted="2"] {
+  background-color: yellow;
+}
+
+
+/* cardRemove ------------------------------------ */
+.card .cardRemove {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.card .cardRemove.closed {
+  display: none;
+}
+
+.cardRemoved {
+  position: relative;
+  animation: cardRemoved 0.3s linear both;
+  pointer-events: none;
+  user-select: none;
+
+}
+
+@keyframes cardRemoved {
+  0% {}
+  100% {
+    /* transform: translateX(-100vw); */
+    height: 0px;
+    filter: opacity(0) blur(10px);
+  }
+}
+
+
+/*cardInput ------------------------------ */
+
+#cardInputSection {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  color: white;
+}
+
+#cardInputSection input {
+  color: white;
+}
+
+#cardInputSection.open {
+  display: flex;
+  position: absolute;
+  opacity: 1;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+#cardInputSection #cardInputName {
+  text-transform: uppercase;
+}

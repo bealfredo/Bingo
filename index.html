@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bingo</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="#" id="styleTheme">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+</head>
+<body>
+  <section id="ballsSection">
+    <div id="allBalls">
+      <span>
+        <div class="letter notranslate" translate="no">B</div>
+        <div class="ball">01</div>
+        <div class="ball">02</div>
+        <div class="ball">03</div>
+        <div class="ball">04</div>
+        <div class="ball">05</div>
+        <div class="ball">06</div>
+        <div class="ball">07</div>
+        <div class="ball">08</div>
+        <div class="ball">09</div>
+        <div class="ball">10</div>
+        <div class="ball">11</div>
+        <div class="ball">12</div>
+        <div class="ball">13</div>
+        <div class="ball">14</div>
+        <div class="ball">15</div>
+      </span>
+      <span>
+        <div class="letter notranslate" translate="no">I</div>
+        <div class="ball">16</div>
+        <div class="ball">17</div>
+        <div class="ball">18</div>
+        <div class="ball">19</div>
+        <div class="ball">20</div>
+        <div class="ball">21</div>
+        <div class="ball">22</div>
+        <div class="ball">23</div>
+        <div class="ball">24</div>
+        <div class="ball">25</div>
+        <div class="ball">26</div>
+        <div class="ball">27</div>
+        <div class="ball">28</div>
+        <div class="ball">29</div>
+        <div class="ball">30</div>
+      </span>
+      <span>
+        <div class="letter notranslate" translate="no">N</div>
+        <div class="ball">31</div>
+        <div class="ball">32</div>
+        <div class="ball">33</div>
+        <div class="ball">34</div>
+        <div class="ball">35</div>
+        <div class="ball">36</div>
+        <div class="ball">37</div>
+        <div class="ball">38</div>
+        <div class="ball">39</div>
+        <div class="ball">40</div>
+        <div class="ball">41</div>
+        <div class="ball">42</div>
+        <div class="ball">43</div>
+        <div class="ball">44</div>
+        <div class="ball">45</div>
+      </span>
+      <span>
+        <div class="letter notranslate" translate="no">G</div>
+        <div class="ball">46</div>
+        <div class="ball">47</div>
+        <div class="ball">48</div>
+        <div class="ball">49</div>
+        <div class="ball">50</div>
+        <div class="ball">51</div>
+        <div class="ball">52</div>
+        <div class="ball">53</div>
+        <div class="ball">54</div>
+        <div class="ball">55</div>
+        <div class="ball">56</div>
+        <div class="ball">57</div>
+        <div class="ball">58</div>
+        <div class="ball">59</div>
+        <div class="ball">60</div>
+      </span>
+      <span>
+        <div class="letter notranslate" translate="no">O</div>
+        <div class="ball">61</div>
+        <div class="ball">62</div>
+        <div class="ball">63</div>
+        <div class="ball">64</div>
+        <div class="ball">65</div>
+        <div class="ball">66</div>
+        <div class="ball">67</div>
+        <div class="ball">68</div>
+        <div class="ball">69</div>
+        <div class="ball">70</div>
+        <div class="ball">71</div>
+        <div class="ball">72</div>
+        <div class="ball">73</div>
+        <div class="ball">74</div>
+        <div class="ball">75</div>
+      </span>
+    </div>
+
+    <div id="optionsBalls">
+      <span class="inputBall">
+        <div class="tagLetter notranslate" translate="no"></div>
+        <div class="tagOrder"></div>
+        <input z
+          id="inputBall" 
+          type="number" 
+          min="1"
+          max="75"
+          maxlength="2"
+          oninput="this.value = this.value.toString().slice(0, 2)"
+        >
+        <span class="inputPlusMinus">
+          <button id="inputPlus">+</button>
+          <button id="inputMinus">-</button>
+        </span>
+      </span>
+      <button id="pushBallBtn" disabled>push</button>
+    </div>
+  </section><!--ballsSection-->
+
+  <section id="allBallsHistoric">
+    <div id="undoBall" class="blocked">
+      <span class="material-icons notranslate" translate="no">undo</span>
+    </div>
+
+    <div id="allBallsHistoricContent">
+      <div id="ballHistoricModel" class="ballHistoric">
+        <span class="tagLetter notranslate" translate="no"></span>
+        <span class="value"></span>
+        <span class="tagOrder"></span>
+      </div>
+    </div>
+  </section><!--historic balls-->
+
+  <section id="moreOptions">
+    <button id="expandBtn">
+      <span id="expandMoreBtn" class="material-icons visible notranslate" translate="no">expand_more</span>
+      <span id="expandLessBtn" class="material-icons notranslate" translate="no">expand_less</span>
+    </button>
+    <button id="addCardBtn">Add Card</button>
+    <button id="pageSettingsBtn">Page Settings</button>
+    <button disabled>Tutorial</button>
+    <button disabled>More About</button>
+  </section><!--more options-->
+
+  <section id="allCards">
+    <button id="firstCard">
+      <span class="material-icons notranslate" translate="no">
+        touch_app
+      </span>
+      <p>Click here or the button above to add your first card</p>
+    </button>
+    <div id="cardModel" class="cardHolder">
+      <div class="card">
+      <header>
+        <span class="cardData">
+          <p>Name: </p>
+          <p class="cardName notranslate" translate="no">######</p>
+        </span>
+  
+        <p class="cardId notranslate" translate="no"></p>
+
+        <span class="cardOptions">
+          <button>
+            <span class="material-icons notranslate" translate="no">settings</span>
+          </button>
+          <span class="hidden">
+            <button class="openEdit">Edit</button>
+            <button class="openRemove">Delete</button>
+          </span>
+        </span>
+      </header>
+  
+      <div class="allColumns">
+        <div class="columnB">
+          <div class="letter notranslate" translate="no">B</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnI">
+          <div class="letter notranslate" translate="no">I</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnN">
+          <div class="letter notranslate" translate="no">N</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item free"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnG">
+          <div class="letter notranslate" translate="no">G</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+  
+        <div class="columnO">
+          <div class="letter notranslate"translate="no">O</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+      </div>
+      </span>
+    </div><!--cardModel-->    
+  </section><!--allCarrdsSection-->
+
+  <section id="cardInputSection">
+    <div id="cardInput" class="card">
+      <header>
+        <span>
+          <!-- <label for="cardInputName">Name: </label> -->
+          <input id="cardInputName" type="text" maxlength="30" placeholder="Name" required>
+        </span>
+
+        <span>
+          <p id="cardInputId" class="notranslate" translate="no"></p>
+        </span>
+
+        <span>
+          <button id="cardInputCancel">Cancel</button>
+          <button id="cardInputSave" disabled>Save</button>
+        </span>
+      </header>
+
+      <div class="allColumns">
+        <div class="columnB">
+          <div class="letter notranslate" translate="no">B</div>
+          <input type="number" min="1" max="15" class="item1" letter="b" required></input>
+          <input type="number" min="1" max="15" class="item2" letter="b" required></input>
+          <input type="number" min="1" max="15" class="item3" letter="b" required></input>
+          <input type="number" min="1" max="15" class="item4" letter="b" required></input>
+          <input type="number" min="1" max="15" class="item5" letter="b" required></input>
+        </div>
+
+        <div class="columnI">
+          <div class="letter notranslate" translate="no">I</div>
+          <input type="number" min="16" max="30" class="item1" letter="i" required></input>
+          <input type="number" min="16" max="30" class="item2" letter="i" required></input>
+          <input type="number" min="16" max="30" class="item3" letter="i" required></input>
+          <input type="number" min="16" max="30" class="item4" letter="i" required></input>
+          <input type="number" min="16" max="30" class="item5" letter="i" required></input>
+        </div>
+
+        <div class="columnN">
+          <div class="letter notranslate" translate="no">N</div>
+          <input type="number" min="31" max="45" class="item1" letter="n" required></input>
+          <input type="number" min="31" max="45" class="item2" letter="n" required></input>
+          <div id="cardInputRandom" class="item3">
+            <button id="cardInputRandomBtn">
+              <span>Random</span>
+              <span>Values</span>
+            </button>
+          </div>
+          <input type="number" min="31" max="45" class="item4" letter="n" required></input>
+          <input type="number" min="31" max="45" class="item5" letter="n" required></input>
+        </div>
+
+        <div class="columnG">
+          <div class="letter notranslate" translate="no">G</div>
+          <input type="number" min="46" max="60" class="item1" letter="g" required></input>
+          <input type="number" min="46" max="60" class="item2" letter="g" required></input>
+          <input type="number" min="46" max="60" class="item3" letter="g" required></input>
+          <input type="number" min="46" max="60" class="item4" letter="g" required></input>
+          <input type="number" min="46" max="60" class="item5" letter="g" required></input>
+        </div>
+
+        <div class="columnO">
+          <div class="letter notranslate" translate="no">O</div>
+          <input type="number" min="61" max="75" class="item1" letter="o" required></input>
+          <input type="number" min="61" max="75" class="item2" letter="o" required></input>
+          <input type="number" min="61" max="75" class="item3" letter="o" required></input>
+          <input type="number" min="61" max="75" class="item4" letter="o" required></input>
+          <input type="number" min="61" max="75" class="item5" letter="o" required></input>
+        </div>
+      </div>
+    </div><!--inputCarrd-->
+
+    <div id="cardInputErrorHolder">
+      <span class="material-icons notranslate" translate="no">error_outline</span>
+      <p id="cardInputErrorOutput"></p>
+    </div>
+  </section><!--cardInputSection-->
+
+
+  <section id="pageSettingsSection">
+    <div id="pageSettings">
+      <header>
+        <h2>PAGE SETTINGS</h2>
+        <button id="pageSettingsCloseBtn" class="btnClose">
+          <span class="material-icons notranslate" translate="no">
+            cancel
+          </span>
+        </button>
+      </header>
+
+      <section class="pageSettingsContent">
+        <section > <!--appearence-->
+          <legend>APPEARENCE</legend>
+  
+          <div id="sttPrimaryColor" class="settingOpt">
+            <header>
+              <span>
+                <h3>Primary color</h3>
+              </span>
+              <span>
+                <span class="selectInfo">select</span>
+                <div class="options">
+                  <div class="option select"></div>
+                  <span class="optionsHide">
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                    <div class="option"></div>
+                  </span>
+                </div>
+                  <button class="btnStt">apply</button>
+              </span>
+            </header>
+          </div><!--div#sttPrimaryColor-->
+  
+          <div id="sttTheme" class="settingOpt">
+            <header>
+              <span>
+                <h3>Theme</h3>
+              </span>
+              <span>
+                <span class="selectInfo">select</span>
+                <div class="option select"></div>
+                <button class="btnStt">apply</button>
+              </span>
+            </header>
+            <div class="content">
+              <div class="option">
+                <span class="material-icons light notranslate" translate="no">light_mode</span>
+              </div>
+              <div class="option">
+                <span class="material-icons dark notranslate" translate="no">dark_mode</span>
+              </div>
+              <!-- <div class="option">
+                <span class="material-icons">light_mode</span>
+              </div> -->
+            </div>
+          </div><!--div#sttTheme-->
+
+          <div id="sttSortedColors" class="settingOpt">
+            <header>
+              <span>
+                <h3>Sorted Colors</h3>                
+              </span>
+              <p class="description">
+                <span class="material-symbols-outlined notranslate" translate="no">
+                  help
+                </span>
+                <span class="hidden">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eligendi. Amet culpa adipisci magni inventore, minus quam vero distinctio numquam illo a ullam asperiores minima, maxime facere quia, explicabo atque!
+                </span>
+              </p>
+            </header>
+            <div class="content">
+              <div class="options">
+                <div class="option">
+                  <p>last</p>
+                  <input type="color">
+                </div>
+                <div class="option">
+                  <p>next-to-last</p>
+                  <input type="color">
+                </div>
+                <div class="option">
+                  <p>others</p>
+                  <input type="color">
+                </div>
+              </div>
+              <button class="btnStt">apply</button>
+            </div>
+          </div><!--div#sttTheme-->
+          
+        </section>
+  
+        <section> <!--Data-->
+          <legend>SYNC SETTINGS</legend>
+          
+          <div class="settingOpt" id="sttExport"><!--stt == setting-->
+            <header>
+              <span>
+                <h3>Export</h3>
+              </span>
+              <p class="description">
+                <span class="material-symbols-outlined notranslate" translate="no">
+                  help
+                </span>
+                <span class="hidden">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eligendi. Amet culpa adipisci magni inventore, minus quam vero distinctio numquam illo a ullam asperiores minima, maxime facere quia, explicabo atque!
+                </span>
+              </p>
+            </header>
+  
+            <div class="content">
+              <span class="checkboxes">
+                <span class="mycheckbox">
+                  <span id="sttExport1opt" class="material-icons notranslate" translate="no" ischecked="false">check</span>
+                  <span class="checkboxname">Balls</span>
+                </span>
+                <span class="mycheckbox">
+                  <span id="sttExport2opt" class="material-icons notranslate" translate="no" ischecked="false">check</span>
+                  <span class="checkboxname">Cards</span>
+                </span>
+              </span>
+  
+              <span>
+                <button id="sttExportBtn" onclick="return false" class="btnStt" disabled>export</button>
+                <textarea id="sttExport2copy"></textarea>
+              </span>
+            </div>
+          </div><!--sttExport-->
+  
+          <div id="sttImport" class="settingOpt"><!--stt == setting-->
+            <header>
+              <span>
+                <h3>Import</h3>
+              </span>
+              <p class="description">
+                <span class="material-symbols-outlined notranslate" translate="no">
+                  help
+                </span>
+                <span class="hidden">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eligendi. Amet culpa adipisci magni inventore, minus quam vero distinctio numquam illo a ullam asperiores minima, maxime facere quia, explicabo atque!
+                </span>
+              </p>
+            </header>
+  
+            <div class="content">
+              <span class="inputArea">
+                <input id="sttImportInput" type="text" placeholder="Paste here">
+                <button id="clearImportInputBtn" class="btnClose">
+                  <span class="material-icons notranslate" translate="no">cancel</span>
+                </button>
+              </span>
+          
+              <span id="sttImportInvalid">
+                <p>INVALID FORMAT</p>
+                <p id="sttImportInvalidMessage"></p>
+              </span>
+  
+              <span class="preview">
+                <div id="sttImportBalls">
+                  <span id="ballsPreview">
+                    <span id="ballPreviewModel" class="ballPreview"></span>
+                  </span>
+                  <span class="buttons">
+                    <button id="addBallsBtn" class="btnStt">add</button>
+                    <button id="replaceBallsBtn" class="btnStt">replace</button>
+                  </span>
+                </div><!--sttImportBalls-->
+                <div id="sttImportCards">
+                  <span id="cardsPreview">
+                    <span id="cardPreviewModel" class="cardPreview">
+                      <div class="allColumns">
+                        <div class="columnB">
+                          <div class="letter notranslate" translate="no">B</div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                        </div>
+                  
+                        <div class="columnI">
+                          <div class="letter notranslate" translate="no">I</div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                        </div>
+                  
+                        <div class="columnN">
+                          <div class="letter notranslate" translate="no">N</div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item free"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                        </div>
+                  
+                        <div class="columnG">
+                          <div class="letter notranslate" translate="no">G</div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                        </div>
+                  
+                        <div class="columnO">
+                          <div class="letter notranslate"translate="no">O</div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                          <div class="item"></div>
+                        </div>
+                      </div>
+                      <div class="info">
+                        <p class="notranslate" translate="no">ID: </p>
+                        <p class="id notranslate" translate="no">####</p>
+                        <p>NAME:</p>
+                        <p class="name notranslate" translate="no">####</p>
+                      </div>
+                    </span>
+                  </span>
+                  <span class="buttons">
+                    <button id="addCardsBtn" class="btnStt">add</button>
+                    <button id="replaceCardsBtn" class="btnStt">replace</button>
+                  </span>
+                </div><!--sttImportCards-->
+              </span>
+            </div><!--content-->
+  
+          </div><!--settingOpt-->
+
+          <div class="settingOpt" id="sttReset"><!--stt == setting-->
+            <header>
+              <span>
+                <h3>Reset</h3>
+              </span>
+            </header>
+  
+            <div class="content">
+              <span>
+                <p>Delete all data from this page</p>
+              </span>
+  
+              <span>
+                <button id="sttResetBtn" onclick="return false" class="btnStt">Reset</button>
+              </span>
+            </div>
+          </div><!--sttReset-->
+        </section>
+      </section><!--.pageSettingsContent-->
+    </div>
+  </section><!--pageSettingsSection-->
+
+  <section id="notificationSection">
+  </section>
+
+  <section id="myConfirmSection">
+    <div id="myConfirm">
+      <span class="myConfirmContent">
+        <h3 id="myConfirmH">Deletar card?</h3>
+        <p id="myConfirmP">Lorem ipsum dolor sit amet consectetur adipisicing elite. Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </span>
+      <span class="myConfirmButtons">
+        <button id="myConfirmBtnOk">OK</button>
+        <button id="myConfirmBtnCancel">Cancel</button>
+      </span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
