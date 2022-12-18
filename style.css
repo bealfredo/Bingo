@@ -225,6 +225,9 @@ section#ballsSection {
   display: flex;
   border-radius: 0 0 var(--section-borderRadius) var(--section-borderRadius);
   overflow: hidden;
+  
+  /* ! */
+  height: 23.5rem;
 }
 
 #ballsSection #allBalls {
@@ -305,6 +308,10 @@ section#ballsSection {
   min-width: 15rem !important;
   padding: 1rem;
   min-width: fit-content;
+
+  /* ! */
+  gap: 2rem; 
+  justify-content: flex-end;
 }
 
 #ballsSection #optionsBalls > span.inputBall{
@@ -621,6 +628,7 @@ section#allCards {
 
 .cardHolder {
   width: 100vw;
+  width: 100%; /* ! */
   height: 76rem;
 }
 
@@ -633,6 +641,7 @@ section#allCards {
   width: 100%;
   height: 70rem;
   max-width: 60rem;
+  max-width: min(100%, 60rem); /* ! */
   position: relative;
 
   margin: 1rem auto 2rem;
@@ -810,7 +819,9 @@ section#allCards {
 #pageSettingsSection {
   display: none;
   width: 100vw;
+  width: 100%; /* ! */
   height: 100vh;
+  height: 100%; /* ! */
   align-items: center;
   justify-content: center;
 
@@ -836,12 +847,25 @@ section#allCards {
 #cardInput {
   background: var(--cardInput-bk);
   box-shadow: none;
+  width: 95%; /* ! */
 }
 
 #cardInputId {
   color: var(--header-id-fontColor);
   text-transform: lowercase;
   font-weight: bold;
+}
+
+#cardInput header {
+  /* gap: 1rem; */
+}
+
+#cardInput header span {
+  /* width: 33%; */
+}
+
+#cardInput header span.cardInputbtns {
+  /* display: flex; */
 }
 
 #cardInput button {
@@ -876,7 +900,7 @@ section#allCards {
 }
 
 #cardInput input[type="text"] {
-  width: 27rem;
+  max-width: 27rem;
   border-bottom: 2px solid var(--cardInput-inputText-bk);
   padding: 0.5rem 0.5rem 0.25rem;
   background-color: transparent;
@@ -979,10 +1003,11 @@ section#pageSettingsSection.open {
 #pageSettingsSection #pageSettings {
   width: 80rem;
   max-width: 90vw;
-  height: 100%;
+  /* height: 100%; */ /* ! */
   display: flex;
   flex-direction: column;
   /* border: 1px solid blue; */
+  padding-bottom: 5rem; /* ! */
 }
 
 #pageSettingsSection #pageSettings > header{
@@ -1002,12 +1027,14 @@ section#pageSettingsSection.open {
 
 #pageSettingsSection .pageSettingsContent {
   width: calc(100% + 3rem);
+  width: 100%; /* ! */
   padding-top: 3rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: auto; /* ! */
+  overflow-x: auto; /* ! */
   /* border: 1px solid red; */
   margin-top: 1rem;
   padding: 0 1.5rem 0 0;
+  padding: 0; /* ! */
   /* transform: translateX(1.5rem); */
 }
 
@@ -1315,6 +1342,7 @@ section#pageSettingsSection.open {
 #sttExport .content {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 #sttExport .content .checkboxes {
@@ -1325,6 +1353,9 @@ section#pageSettingsSection.open {
   opacity: 0;
   position: absolute;
   pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #sttExport .content .checkboxes {
@@ -1633,7 +1664,7 @@ button#clearImportInputBtn .material-icons{
   right: 1.5rem;
   font-size: 1.4rem;
   user-select: none;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .notification {
@@ -1899,5 +1930,25 @@ section#myConfirmSection.open {
 @media screen and (min-width: 2400px){
   #allCards {
     grid-template-columns: auto auto auto;
+  }
+}
+
+
+
+
+/* vo */
+.card.winner {
+  animation: winner 2s infinite;
+}
+
+@keyframes winner {
+  0% {
+    background-color: var(--card-bk);
+  }
+  50% {
+    background-color: gold;
+  }
+  100% {
+    background-color: var(--card-bk);
   }
 }

@@ -90,6 +90,20 @@ class Card {
         items[index].setAttribute('sorted', count)
       } 
     }
+
+    /* ! bingo da vó */
+    const card = this.getElement().querySelector(".card")
+    card.classList.remove("winner")
+
+    if(count == 24) {
+      card.classList.add("winner")
+      new Notification(
+        "Cartela premiada:<br>" +
+        this.name +  "<br>" +
+        "ID = " + this.id
+        , 60000
+      )
+    }
   }
 
   clearSortedAttribute(number) {
