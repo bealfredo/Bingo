@@ -818,10 +818,13 @@ section#allCards {
 #cardInputSection,
 #pageSettingsSection {
   display: none;
-  width: 100vw;
-  width: 100%; /* ! */
-  height: 100vh;
-  height: 100%; /* ! */
+  
+  /* width: 100vw; */
+  /* width: 100%; ! */
+  /* height: 100%; ! */
+  /* height: 100vh; */
+  inset: 0;
+  
   align-items: center;
   justify-content: center;
 
