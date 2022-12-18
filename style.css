@@ -1937,7 +1937,9 @@ section#myConfirmSection.open {
 }
 
 
-
+.card.almost {
+  background-color: #fdd5d5;
+}
 
 /* vo */
 .card.winner {

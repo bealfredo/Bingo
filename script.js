@@ -94,16 +94,27 @@ class Card {
     /* ! bingo da vó */
     const card = this.getElement().querySelector(".card")
     card.classList.remove("winner")
+    card.classList.remove('almost')
 
-    if(count == 24) {
+    if(count >= 21 && count < 24) {
+      card.classList.add("almost")
+      new Notification(
+        "Está quase:<br>" +
+        this.name +  "<br>" +
+        "ID = " + this.id
+        , 15000
+      )
+    } else 
+     if(count == 24) {
       card.classList.add("winner")
       new Notification(
         "Cartela premiada:<br>" +
         this.name +  "<br>" +
         "ID = " + this.id
-        , 60000
+        , 120000
       )
     }
+    
   }
 
   clearSortedAttribute(number) {
